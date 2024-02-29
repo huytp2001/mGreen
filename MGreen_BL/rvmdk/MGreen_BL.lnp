@@ -1,0 +1,17 @@
+--cpu=Cortex-M4.fp.sp
+".\rvmdk\mgreen_bl.o"
+".\rvmdk\mmc-dk-tm4c129x.o"
+".\rvmdk\simple_fs.o"
+".\rvmdk\crc.o"
+".\rvmdk\params.o"
+".\rvmdk\sdram.o"
+".\rvmdk\startup_rvmdk.o"
+".\rvmdk\boot_config.o"
+".\rvmdk\ff.o"
+".\rvmdk\sd_card.o"
+".\Library\driverlib.lib"
+".\Library\usblib.lib"
+--library_type=microlib --strict --scatter ".\rvmdk\MGreen_BL.sct"
+--entry Reset_Handler --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\rvmdk\MGreen_BL.map" -o .\rvmdk\MGreen_BL.axf

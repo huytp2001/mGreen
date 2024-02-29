@@ -1,0 +1,285 @@
+\hypertarget{sd__manage__lib_8c}{}\section{sd\+\_\+manage\+\_\+lib.\+c File Reference}
+\label{sd__manage__lib_8c}\index{sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}}
+
+
+Contain functions to manage read and write sd card action.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}sd\+\_\+manage\+\_\+lib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ff.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}H\+A\+L\+\_\+\+B\+S\+P.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\newline
+Include dependency graph for sd\+\_\+manage\+\_\+lib.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sd__manage__lib_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \hyperlink{sd__manage__lib_8c_a37d4403b945bd02b8e8b17d5442f6166}{i8\+\_\+sdcard\+\_\+check\+\_\+exist\+\_\+file} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Check a file is exist or not. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{sd__manage__lib_8c_a77f3c2ec2a0d177bb7954f338b8a1a9e}{i8\+\_\+sdcard\+\_\+delete\+\_\+file} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Delete a file. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{sd__manage__lib_8c_a1a36bbc2e04b30e8b970a01d5bb5b6d8}{i8\+\_\+sdcard\+\_\+write\+\_\+value} (char $\ast$filename, uint32\+\_\+t u32\+\_\+addr, int32\+\_\+t i32\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Write a value to the given address in file. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{sd__manage__lib_8c_aa10f53e394fef9b6912012e17d93447c}{i8\+\_\+sdcard\+\_\+write\+\_\+data} (char $\ast$filename, uint32\+\_\+t u32\+\_\+addr, uint32\+\_\+t $\ast$u32\+\_\+data, uint32\+\_\+t u32\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Write a array of data to the given address in file. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{sd__manage__lib_8c_a81f7e2427d424cc9759559ba38f5b5e8}{i8\+\_\+sdcard\+\_\+write\+\_\+text} (char $\ast$filename, uint32\+\_\+t u32\+\_\+addr, char $\ast$c\+\_\+text)
+\begin{DoxyCompactList}\small\item\em Write a string data the given address in file. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{sd__manage__lib_8c_a0567a8a5024b2dc8edddbee03677907e}{i8\+\_\+sdcard\+\_\+read\+\_\+value} (char $\ast$filename, uint32\+\_\+t u32\+\_\+addr, uint32\+\_\+t $\ast$pu32\+\_\+value)
+\begin{DoxyCompactList}\small\item\em read a value from sd card \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{sd__manage__lib_8c_af7ae9895e0278903d1bbd427b0d0f7d7}{i8\+\_\+sdcard\+\_\+read\+\_\+data} (char $\ast$filename, uint32\+\_\+t u32\+\_\+addr, uint32\+\_\+t $\ast$pu32\+\_\+data, uint32\+\_\+t u32\+\_\+len)
+\begin{DoxyCompactList}\small\item\em read an array of data from sd card \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{sd__manage__lib_8c_a6ca6542895c8b3d6a92f976b9343990d}{i8\+\_\+sdcard\+\_\+read\+\_\+text} (char $\ast$filename, uint32\+\_\+t u32\+\_\+addr, char $\ast$c\+\_\+text)
+\begin{DoxyCompactList}\small\item\em read an array of data from sd card \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{sd__manage__lib_8c_a681d1ddec3bf0fb2d85ca694c0017a87}{i8\+\_\+sdcard\+\_\+save\+\_\+file} (char $\ast$filename, const uint8\+\_\+t $\ast$pu8\+\_\+data, uint32\+\_\+t u32\+\_\+len)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contain functions to manage read and write sd card action. 
+
+\begin{DoxyAuthor}{Author}
+Danh Pham 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11 Nov 2020 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+\+: 2.\+0.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{sd__manage__lib_8c_a37d4403b945bd02b8e8b17d5442f6166}\label{sd__manage__lib_8c_a37d4403b945bd02b8e8b17d5442f6166}} 
+\index{sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}!i8\+\_\+sdcard\+\_\+check\+\_\+exist\+\_\+file@{i8\+\_\+sdcard\+\_\+check\+\_\+exist\+\_\+file}}
+\index{i8\+\_\+sdcard\+\_\+check\+\_\+exist\+\_\+file@{i8\+\_\+sdcard\+\_\+check\+\_\+exist\+\_\+file}!sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}}
+\subsubsection{\texorpdfstring{i8\+\_\+sdcard\+\_\+check\+\_\+exist\+\_\+file()}{i8\_sdcard\_check\_exist\_file()}}
+{\footnotesize\ttfamily int8\+\_\+t i8\+\_\+sdcard\+\_\+check\+\_\+exist\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Check a file is exist or not. 
+
+Add more include here
+
+Variables declare
+
+Private functions prototype
+
+Public functions
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & name of file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: file is exist -\/1\+: file is not exist 
+\end{DoxyReturn}
+$<$file is not exist \mbox{\Hypertarget{sd__manage__lib_8c_a77f3c2ec2a0d177bb7954f338b8a1a9e}\label{sd__manage__lib_8c_a77f3c2ec2a0d177bb7954f338b8a1a9e}} 
+\index{sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}!i8\+\_\+sdcard\+\_\+delete\+\_\+file@{i8\+\_\+sdcard\+\_\+delete\+\_\+file}}
+\index{i8\+\_\+sdcard\+\_\+delete\+\_\+file@{i8\+\_\+sdcard\+\_\+delete\+\_\+file}!sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}}
+\subsubsection{\texorpdfstring{i8\+\_\+sdcard\+\_\+delete\+\_\+file()}{i8\_sdcard\_delete\_file()}}
+{\footnotesize\ttfamily int8\+\_\+t i8\+\_\+sdcard\+\_\+delete\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Delete a file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & name of file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: delete success or file is not exist -\/2\+: can not delete 
+\end{DoxyReturn}
+$<$file is not exist \mbox{\Hypertarget{sd__manage__lib_8c_af7ae9895e0278903d1bbd427b0d0f7d7}\label{sd__manage__lib_8c_af7ae9895e0278903d1bbd427b0d0f7d7}} 
+\index{sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}!i8\+\_\+sdcard\+\_\+read\+\_\+data@{i8\+\_\+sdcard\+\_\+read\+\_\+data}}
+\index{i8\+\_\+sdcard\+\_\+read\+\_\+data@{i8\+\_\+sdcard\+\_\+read\+\_\+data}!sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}}
+\subsubsection{\texorpdfstring{i8\+\_\+sdcard\+\_\+read\+\_\+data()}{i8\_sdcard\_read\_data()}}
+{\footnotesize\ttfamily i8\+\_\+sdcard\+\_\+read\+\_\+data (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{uint32\+\_\+t}]{u32\+\_\+addr,  }\item[{uint32\+\_\+t $\ast$}]{pu32\+\_\+data,  }\item[{uint32\+\_\+t}]{u32\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+read an array of data from sd card 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & name of file \\
+\hline
+\mbox{\tt in}  & {\em u32\+\_\+addr} & address to read \\
+\hline
+\mbox{\tt out}  & {\em pu32\+\_\+data} & buffer of data \\
+\hline
+\mbox{\tt in}  & {\em u32\+\_\+len} & length of data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: read success -\/1\+: file is not exist -\/2\+: can not read 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sd__manage__lib_8c_a6ca6542895c8b3d6a92f976b9343990d}\label{sd__manage__lib_8c_a6ca6542895c8b3d6a92f976b9343990d}} 
+\index{sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}!i8\+\_\+sdcard\+\_\+read\+\_\+text@{i8\+\_\+sdcard\+\_\+read\+\_\+text}}
+\index{i8\+\_\+sdcard\+\_\+read\+\_\+text@{i8\+\_\+sdcard\+\_\+read\+\_\+text}!sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}}
+\subsubsection{\texorpdfstring{i8\+\_\+sdcard\+\_\+read\+\_\+text()}{i8\_sdcard\_read\_text()}}
+{\footnotesize\ttfamily i8\+\_\+sdcard\+\_\+read\+\_\+text (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{uint32\+\_\+t}]{u32\+\_\+addr,  }\item[{char $\ast$}]{c\+\_\+text }\end{DoxyParamCaption})}
+
+
+
+read an array of data from sd card 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & name of file \\
+\hline
+\mbox{\tt in}  & {\em u32\+\_\+addr} & address to read \\
+\hline
+\mbox{\tt out}  & {\em c\+\_\+text} & buffer of text string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: read success -\/1\+: file is not exist -\/2\+: can not read 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{sd__manage__lib_8c_a6ca6542895c8b3d6a92f976b9343990d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{sd__manage__lib_8c_a0567a8a5024b2dc8edddbee03677907e}\label{sd__manage__lib_8c_a0567a8a5024b2dc8edddbee03677907e}} 
+\index{sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}!i8\+\_\+sdcard\+\_\+read\+\_\+value@{i8\+\_\+sdcard\+\_\+read\+\_\+value}}
+\index{i8\+\_\+sdcard\+\_\+read\+\_\+value@{i8\+\_\+sdcard\+\_\+read\+\_\+value}!sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}}
+\subsubsection{\texorpdfstring{i8\+\_\+sdcard\+\_\+read\+\_\+value()}{i8\_sdcard\_read\_value()}}
+{\footnotesize\ttfamily i8\+\_\+sdcard\+\_\+read\+\_\+value (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{uint32\+\_\+t}]{u32\+\_\+addr,  }\item[{uint32\+\_\+t $\ast$}]{pu32\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+read a value from sd card 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & name of file \\
+\hline
+\mbox{\tt in}  & {\em u32\+\_\+addr} & address to read \\
+\hline
+\mbox{\tt out}  & {\em pu32\+\_\+value} & buffer of value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: read success -\/1\+: file is not exist -\/2\+: can not read 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sd__manage__lib_8c_a0567a8a5024b2dc8edddbee03677907e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{sd__manage__lib_8c_a681d1ddec3bf0fb2d85ca694c0017a87}\label{sd__manage__lib_8c_a681d1ddec3bf0fb2d85ca694c0017a87}} 
+\index{sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}!i8\+\_\+sdcard\+\_\+save\+\_\+file@{i8\+\_\+sdcard\+\_\+save\+\_\+file}}
+\index{i8\+\_\+sdcard\+\_\+save\+\_\+file@{i8\+\_\+sdcard\+\_\+save\+\_\+file}!sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}}
+\subsubsection{\texorpdfstring{i8\+\_\+sdcard\+\_\+save\+\_\+file()}{i8\_sdcard\_save\_file()}}
+{\footnotesize\ttfamily int8\+\_\+t i8\+\_\+sdcard\+\_\+save\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{const uint8\+\_\+t $\ast$}]{pu8\+\_\+data,  }\item[{uint32\+\_\+t}]{u32\+\_\+len }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sd__manage__lib_8c_aa10f53e394fef9b6912012e17d93447c}\label{sd__manage__lib_8c_aa10f53e394fef9b6912012e17d93447c}} 
+\index{sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}!i8\+\_\+sdcard\+\_\+write\+\_\+data@{i8\+\_\+sdcard\+\_\+write\+\_\+data}}
+\index{i8\+\_\+sdcard\+\_\+write\+\_\+data@{i8\+\_\+sdcard\+\_\+write\+\_\+data}!sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}}
+\subsubsection{\texorpdfstring{i8\+\_\+sdcard\+\_\+write\+\_\+data()}{i8\_sdcard\_write\_data()}}
+{\footnotesize\ttfamily i8\+\_\+sdcard\+\_\+write\+\_\+data (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{uint32\+\_\+t}]{u32\+\_\+addr,  }\item[{uint32\+\_\+t $\ast$}]{u32\+\_\+data,  }\item[{uint32\+\_\+t}]{u32\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+Write a array of data to the given address in file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & name of file \\
+\hline
+\mbox{\tt in}  & {\em u32\+\_\+addr} & address to write, the address must divisible by 4 \\
+\hline
+\mbox{\tt in}  & {\em u32\+\_\+data} & data array to write \\
+\hline
+\mbox{\tt in}  & {\em u32\+\_\+len} & lenght of array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: write success -\/1\+: file is not exist -\/2\+: can not write 
+\end{DoxyReturn}
+$<$file is not exist Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sd__manage__lib_8c_aa10f53e394fef9b6912012e17d93447c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{sd__manage__lib_8c_a81f7e2427d424cc9759559ba38f5b5e8}\label{sd__manage__lib_8c_a81f7e2427d424cc9759559ba38f5b5e8}} 
+\index{sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}!i8\+\_\+sdcard\+\_\+write\+\_\+text@{i8\+\_\+sdcard\+\_\+write\+\_\+text}}
+\index{i8\+\_\+sdcard\+\_\+write\+\_\+text@{i8\+\_\+sdcard\+\_\+write\+\_\+text}!sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}}
+\subsubsection{\texorpdfstring{i8\+\_\+sdcard\+\_\+write\+\_\+text()}{i8\_sdcard\_write\_text()}}
+{\footnotesize\ttfamily int8\+\_\+t i8\+\_\+sdcard\+\_\+write\+\_\+text (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{uint32\+\_\+t}]{u32\+\_\+addr,  }\item[{char $\ast$}]{c\+\_\+text }\end{DoxyParamCaption})}
+
+
+
+Write a string data the given address in file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & name of file \\
+\hline
+\mbox{\tt in}  & {\em u32\+\_\+addr} & address to write \\
+\hline
+\mbox{\tt in}  & {\em c\+\_\+text} & string write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: write success -\/1\+: file is not exist -\/2\+: can not write 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sd__manage__lib_8c_a81f7e2427d424cc9759559ba38f5b5e8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{sd__manage__lib_8c_a1a36bbc2e04b30e8b970a01d5bb5b6d8}\label{sd__manage__lib_8c_a1a36bbc2e04b30e8b970a01d5bb5b6d8}} 
+\index{sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}!i8\+\_\+sdcard\+\_\+write\+\_\+value@{i8\+\_\+sdcard\+\_\+write\+\_\+value}}
+\index{i8\+\_\+sdcard\+\_\+write\+\_\+value@{i8\+\_\+sdcard\+\_\+write\+\_\+value}!sd\+\_\+manage\+\_\+lib.\+c@{sd\+\_\+manage\+\_\+lib.\+c}}
+\subsubsection{\texorpdfstring{i8\+\_\+sdcard\+\_\+write\+\_\+value()}{i8\_sdcard\_write\_value()}}
+{\footnotesize\ttfamily i8\+\_\+sdcard\+\_\+write\+\_\+value (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{uint32\+\_\+t}]{u32\+\_\+addr,  }\item[{int32\+\_\+t}]{i32\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+Write a value to the given address in file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & name of file \\
+\hline
+\mbox{\tt in}  & {\em u32\+\_\+addr} & address to write, the address must divisible by 4 \\
+\hline
+\mbox{\tt in}  & {\em i32\+\_\+value} & value to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: write success -\/1\+: file is not exist -\/2\+: can not write 
+\end{DoxyReturn}
+$<$file is not exist Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sd__manage__lib_8c_a1a36bbc2e04b30e8b970a01d5bb5b6d8_icgraph}
+\end{center}
+\end{figure}

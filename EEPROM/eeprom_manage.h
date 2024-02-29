@@ -1,0 +1,54 @@
+#ifndef __EEPROM_MANAGE_H__
+#define __EEPROM_MANAGE_H__
+
+#include "driverlib.h"
+#include <stdint.h>
+#include <stdbool.h>
+
+//define all eeprom space here before use
+#define EEPROM_PARAMS_USE		3072
+#define EEPROM_CHECK_FOTA_USE	1
+
+
+//define epprom address here before use
+#define EEPROM_CHECK_FOTA		3273			//(3072+200+1)	
+
+//#define EEPROM_EC_VALID_ADDR	3275
+//#define EEPROM_EC_P1_ADDR		3277
+//#define EEPROM_EC_P2_ADDR		3279
+//#define EEPROM_EC_P3_ADDR		3281
+
+//#define EEPROM_PH_VALID_ADDR	3283
+//#define EEPROM_PH_P1_ADDR		3285
+//#define EEPROM_PH_P2_ADDR		3287
+//#define EEPROM_PH_P3_ADDR		3289
+
+// copy form older code
+#define EEPROM_EC_VALID_ADDR				0x0CD0
+#define EEPROM_EC_1413_VALUE_ADDR		0x0CD2
+#define EEPROM_EC_3290_VALUE_ADDR		0x0CD4
+#define EEPROM_EC_5000_VALUE_ADDR		0x0CD6
+
+#define EEPROM_PH_VALID_ADDR				0x0CD8
+#define EEPROM_PH_401_VALUE_ADDR		0x0CDA
+#define EEPROM_PH_701_VALUE_ADDR		0x0CDC
+#define EEPROM_PH_1001_VALUE_ADDR		0x0CDE
+
+#define EEPROM_NEUTRAL_VALID_ADDR							0x0CF0
+#define EEPROM_NEUTRAL_TIME_SAMPLE_ADDR   		0x0CF4	
+#define EEPROM_NEUTRAL_TIME_INJECT_ACID_ADDR	0x0CF8	
+#define EEPROM_NEUTRAL_TIME_AERATION_ADDR			0x0CFC
+#define EEPROM_NEUTRAL_START_POINT_ADDR				0x0D00
+#define EEPROM_NEUTRAL_STOP_POINT_ADDR				0x0D04
+
+#define EEPROM_NEUTRAL_START_TIME_ADDR 				0x0D08
+#define EEPROM_NEUTRAL_STOP_TIME_ADDR					0x0D0C
+
+#define EEPROM_VPD_NODE_ID_ADDR								0x0D10
+#define EEPROM_VPD_START_TIME_ADDR						0x0D14
+#define EEPROM_VPD_STOP_TIME_ADDR							0x0D18
+#define EEPROM_VPD_MIN_TEMP_ADDR							0x0D1C
+#define EEPROM_VPD_MAX_TEMP_ADDR							0x0D20
+#define EEPROM_VPD_VALID_ADDR									0x0D24
+
+#endif
